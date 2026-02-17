@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Expression from './components/expression.jsx';
-import UserProfile from './components/UserProfile.jsx';
-import CourseCard from './components/CourseCard.jsx';
-import Header from './components/Header.jsx';
+import { useState } from "react";
+import FontSizdeChange from "./components/font-size-change.jsx";
+import RegisterForm from "./components/register-form.jsx";
+import UserInput from "./components/UserInput.jsx";
+import UserCard from "./components/UserCard.jsx";
+
 function App() {
-  const [title, settitle] = useState("Introduction to React");
-  const [instructor, setInstructor] = useState("srey nich");
-  const [duration, setDuration] = useState("4 weeks");
+  const [username, setUsername] = useState(null);
 
-  // const informationcourse =() => {
-  //   settitle("Advanced React Concepts");
-  //   setInstructor("Jane Smith");
-  //   setDuration("6 weeks");
-  // };
+  const handleUpdateUsername = (value) => {
+    setUsername(value);
+  };
+
   return (
-    <>
-      <Header/>
-       <div className="flex gap-6 justify-center mt-10 flex-wrap">
-        <CourseCard title="HTML & CSS" instructor={instructor} duration="15 Week" />
-        <CourseCard title="Spring Boot" instructor={instructor} duration="30 week" />
-        <CourseCard title="JavaScript" instructor={instructor} duration="30 hour" />
-      </div>
+    <div className="min-h-screen bg-gray-100 py-10 px-4">
+      <div className="max-w-6xl mx-auto space-y-10">
+        {/* Page Title */}
+        <h1 className="text-3xl font-bold text-center text-gray-700">
+          React State & Props Demo
+        </h1>
 
-      <Expression />
-      <UserProfile/>
-    </>
-  )
+        {/* Grid Layout */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Register Form */}
+          <div className="flex justify-center">
+            <RegisterForm />
+          </div>
+
+          {/* Font Size Change */}
+          <div className="flex justify-center">
+            <FontSizdeChange />
+          </div>
+        </div>
+
+        {/* User Management Section */}
+        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto space-y-6">
+          <h2 className="text-xl font-semibold text-gray-700 text-center">
+            User Management
+          </h2>
+
+          <UserInput onUpdateUsername={handleUpdateUsername} />
+          <UserCard username={username} />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default App
-// state and data
+export default App;
