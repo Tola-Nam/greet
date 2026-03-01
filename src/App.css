@@ -1,1 +1,20 @@
-@import "tailwindcss";
+.user-management-card {
+  background-color: white;
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+  padding: 2rem; /* p-8 */
+  max-width: 28rem; /* max-w-md */
+  margin: 0 auto; /* mx-auto */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space-y-6 */
+}
+
+.user-management-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  color: #4b5563; /* text-gray-700 */
+  text-align: center;
+}
